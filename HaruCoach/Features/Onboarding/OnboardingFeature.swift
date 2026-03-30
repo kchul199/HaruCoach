@@ -16,6 +16,9 @@ struct OnboardingFeature {
         var chronotype: Chronotype = .morning
         var isAnimating: Bool = false
         var firstInput: String = ""
+        var currentNonce: String = ""
+        var isAuthenticating: Bool = false
+        var authenticationError: String? = nil
     }
     
     enum OnboardingPage: Int, CaseIterable, Equatable {
@@ -41,9 +44,15 @@ struct OnboardingFeature {
         case setFirstInput(String)
         case completeOnboarding
         case skipToQuickSetup
+        
+        case setNonce(String)
+        case appleLoginResult(String, String) // idToken, rawNonce
+        case authenticationSuccess(String) // uid
+        case authenticationFailure(String)
     }
     
     @Dependency(\.databaseClient) var databaseClient
+    @Dependency(\.authClient) var authClient
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -107,6 +116,32 @@ struct OnboardingFeature {
                 
             case .skipToQuickSetup:
                 state.currentPage = .quickSetup
+                return .none
+                
+            case .setNonce(let nonce):
+                state.currentNonce = nonce
+                return .none
+                
+            case .appleLoginResult(let idToken, let rawNonce):
+                state.isAuthenticating = true
+                state.authenticationError = nil
+                return .run { send in
+                    do {
+                        let uid = try await authClient.signInWithApple(idToken, rawNonce)
+                        await send(.authenticationSuccess(uid))
+                    } catch {
+                        await send(.authenticationFailure(error.localizedDescription))
+                    }
+                }
+                
+            case .authenticationSuccess(let uid):
+                state.isAuthenticating = false
+                // 추후 User 모델에 uid 매핑
+                return .send(.nextPage)
+                
+            case .authenticationFailure(let error):
+                state.isAuthenticating = false
+                state.authenticationError = error
                 return .none
             }
         }

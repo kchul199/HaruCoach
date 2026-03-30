@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00E296B6E6823D0E69D64CD6 /* DatabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642B6B849336778C44CCC1A /* DatabaseClient.swift */; };
 		06E9788E9E8E97DF1604E768 /* PromptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B79646718D3890F6FBE24B /* PromptManager.swift */; };
 		0D1E6F8E1BAEE2C5CB47334C /* MockAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0216AC8A90C432F8BA3C35FF /* MockAIService.swift */; };
 		10163BFC562765D407DE9076 /* HCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4122AAB44571F5F091E6480C /* HCTextField.swift */; };
@@ -17,6 +18,7 @@
 		3BAF382DC217F5A56EB55E59 /* IntroCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69608532FF0436C00857F0 /* IntroCarouselView.swift */; };
 		3D54D39E4FA09F02E04E39FA /* OnboardingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B45D91BB094394A38EB1535 /* OnboardingFeature.swift */; };
 		4DD5680385573D62E272B923 /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BBD81AD061EECCF0369EB /* AppleLoginButton.swift */; };
+		5CD3DC2384E6A89BF4AAEED5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 06D3D5AC7EE3A8B8A01B7B34 /* FirebaseAuth */; };
 		5F954A2F8A5FFA03640D5DB5 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DB92C1E5D7D7853349FF2 /* ReviewView.swift */; };
 		63C739C22591C5BDEBD307CA /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5A44F97D86DA9DE994E9A3 /* OnboardingView.swift */; };
 		718BE91D3E94A209D622A5F3 /* HomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73759E81B5E4B4403D403D14 /* HomeFeature.swift */; };
@@ -25,11 +27,13 @@
 		8EF1BFF2E1F698346DCD63D3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D313A5B24B4D91CE4CC608 /* SplashView.swift */; };
 		908C167474C0955F40464B55 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754D226B418DBB49CB817F3 /* EditTaskView.swift */; };
 		949FFADD6A25695D6FC3D657 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08C562B26940529E4FB111 /* HomeView.swift */; };
+		95B0EB5A369F2691E1198641 /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B291ADF8C0323BA9614B2826 /* AuthClient.swift */; };
 		990FA1D033CAE671239C7638 /* HaruCoachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D065B1918DB91AA495A61E /* HaruCoachTests.swift */; };
 		9BF746687FE0D16C946C1569 /* ReviewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4896D2A7538C2C20C867EA22 /* ReviewFeature.swift */; };
 		9F9A35A95B9FB1D93BDA6959 /* HCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECD1F52EC71C84DDEF298E8 /* HCButton.swift */; };
 		A24C11FA14EE70141E736522 /* HCColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC96C75B0BC260E456A7013 /* HCColors.swift */; };
 		A55128F8E30720C69773AC19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664A9F320EEE6B1D9975D926 /* Assets.xcassets */; };
+		A78951C03F77B98AB09B75E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54C23F98A893F0941A82ABFA /* GoogleService-Info.plist */; };
 		AA9454211C0C0233B13004F5 /* TaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368E6D1424AE970CC3506DE /* TaskCard.swift */; };
 		B141F7F237184289F38C0D84 /* HCAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D3431CA24FB0A95648602 /* HCAnimations.swift */; };
 		B4EF5EC2E848E0438EAAB649 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6B8C3C6F35E709E0B7892 /* User.swift */; };
@@ -45,6 +49,7 @@
 		EE7720356CE32C60F2D7A051 /* HCSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008261B96D30351FA9C118C3 /* HCSpacing.swift */; };
 		EF9A74B0C4996E6926789CD1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F4063C6BB2E4207BEFBCBE /* LoginView.swift */; };
 		F2BFCD3F186BBCA4062D2463 /* HCTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974B0F8CA0E87B3F90C69F1 /* HCTypography.swift */; };
+		F4FD0DC61096C40067F67131 /* AppleAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E52405A10EA8C3A34AB49C9 /* AppleAuthHelper.swift */; };
 		F9B8706C08EBAA86578B5269 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9771289A7FD49135F40FAB6C /* AIService.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,12 +70,14 @@
 		193D3431CA24FB0A95648602 /* HCAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAnimations.swift; sourceTree = "<group>"; };
 		226564F4DE2636916B4DB823 /* HCTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTask.swift; sourceTree = "<group>"; };
 		2974B0F8CA0E87B3F90C69F1 /* HCTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTypography.swift; sourceTree = "<group>"; };
+		2E52405A10EA8C3A34AB49C9 /* AppleAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthHelper.swift; sourceTree = "<group>"; };
 		397536AC3B2A1F6254C4260F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3A3D7D411C437347308F7F3A /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		3C5A44F97D86DA9DE994E9A3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		4122AAB44571F5F091E6480C /* HCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTextField.swift; sourceTree = "<group>"; };
 		4179221C0CA17E9953EE51BA /* AIConfirmationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIConfirmationCard.swift; sourceTree = "<group>"; };
 		4896D2A7538C2C20C867EA22 /* ReviewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewFeature.swift; sourceTree = "<group>"; };
+		54C23F98A893F0941A82ABFA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		64529778384F279699FBB48B /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		664A9F320EEE6B1D9975D926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C843A803563237038BD62F9 /* HaruCoach.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HaruCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,15 +85,18 @@
 		73759E81B5E4B4403D403D14 /* HomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeature.swift; sourceTree = "<group>"; };
 		7B45D91BB094394A38EB1535 /* OnboardingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeature.swift; sourceTree = "<group>"; };
 		8637F87DAB7C94C00E2311AE /* Correction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Correction.swift; sourceTree = "<group>"; };
+		8659B95342553C6C76F416BD /* HaruCoach.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HaruCoach.entitlements; sourceTree = "<group>"; };
 		88B79646718D3890F6FBE24B /* PromptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptManager.swift; sourceTree = "<group>"; };
 		9771289A7FD49135F40FAB6C /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
 		9E7D3C0F74D0584FCCE330B6 /* DailyReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReview.swift; sourceTree = "<group>"; };
 		A0271E615B90E61BA9386312 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		A7AC352490ECE8A7670CB142 /* HaruCoachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaruCoachApp.swift; sourceTree = "<group>"; };
 		A8D065B1918DB91AA495A61E /* HaruCoachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaruCoachTests.swift; sourceTree = "<group>"; };
+		B291ADF8C0323BA9614B2826 /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
 		B9F4063C6BB2E4207BEFBCBE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BF9024F45966994F15A7EA7B /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 		C02BBD81AD061EECCF0369EB /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
+		C642B6B849336778C44CCC1A /* DatabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClient.swift; sourceTree = "<group>"; };
 		C6BE8A0366CD3CA0EDE5321A /* QuickSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSetupView.swift; sourceTree = "<group>"; };
 		CC69608532FF0436C00857F0 /* IntroCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCarouselView.swift; sourceTree = "<group>"; };
 		DECD1F52EC71C84DDEF298E8 /* HCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCButton.swift; sourceTree = "<group>"; };
@@ -107,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DC7CD13D9E439CC33F0132 /* ComposableArchitecture in Frameworks */,
+				5CD3DC2384E6A89BF4AAEED5 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +201,7 @@
 				786AC8F71A642B0C159E3998 /* Features */,
 				D3271B3189152DE74AC98469 /* Resources */,
 				32B06D3B2331E683E2848D65 /* UI */,
+				8659B95342553C6C76F416BD /* HaruCoach.entitlements */,
 			);
 			path = HaruCoach;
 			sourceTree = "<group>";
@@ -256,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				9771289A7FD49135F40FAB6C /* AIService.swift */,
+				B291ADF8C0323BA9614B2826 /* AuthClient.swift */,
+				C642B6B849336778C44CCC1A /* DatabaseClient.swift */,
 				0216AC8A90C432F8BA3C35FF /* MockAIService.swift */,
 				88B79646718D3890F6FBE24B /* PromptManager.swift */,
 			);
@@ -266,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				664A9F320EEE6B1D9975D926 /* Assets.xcassets */,
+				54C23F98A893F0941A82ABFA /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -278,6 +293,7 @@
 				B582FF6E72A2786B18EF9344 /* Network */,
 				A810C860DE7D1BA1F3CB9EE5 /* Notifications */,
 				CE3B278887845758CFE7C4CF /* Services */,
+				F43EECA78BEDB95E524D4A3A /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -311,6 +327,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F43EECA78BEDB95E524D4A3A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2E52405A10EA8C3A34AB49C9 /* AppleAuthHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,6 +353,7 @@
 			name = HaruCoach;
 			packageProductDependencies = (
 				3C5E920F05B02D1EEC9679A5 /* ComposableArchitecture */,
+				06D3D5AC7EE3A8B8A01B7B34 /* FirebaseAuth */,
 			);
 			productName = HaruCoach;
 			productReference = 6C843A803563237038BD62F9 /* HaruCoach.app */;
@@ -374,6 +399,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				09F1F546BEF8E2AB4691E6E6 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				EB49AD1E84E86E719D6B462D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C11D12259AA054AF0296D0A4 /* Products */;
@@ -392,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A55128F8E30720C69773AC19 /* Assets.xcassets in Resources */,
+				A78951C03F77B98AB09B75E5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,10 +440,13 @@
 				D84B40D2239B9B278305B9D2 /* AIConfirmationCard.swift in Sources */,
 				F9B8706C08EBAA86578B5269 /* AIService.swift in Sources */,
 				E176D04EF4E3CB3E4194742F /* AppFeature.swift in Sources */,
+				F4FD0DC61096C40067F67131 /* AppleAuthHelper.swift in Sources */,
 				4DD5680385573D62E272B923 /* AppleLoginButton.swift in Sources */,
+				95B0EB5A369F2691E1198641 /* AuthClient.swift in Sources */,
 				CE3B5288AE2BB3BF6C18EA69 /* Correction.swift in Sources */,
 				B7A5045456054340D78F942C /* DailyPlan.swift in Sources */,
 				3272400E1A596D2C2C6545F9 /* DailyReview.swift in Sources */,
+				00E296B6E6823D0E69D64CD6 /* DatabaseClient.swift in Sources */,
 				2933F85FF783482B7C39770B /* Date+Extensions.swift in Sources */,
 				908C167474C0955F40464B55 /* EditTaskView.swift in Sources */,
 				7E96FA275AC9248E92F995FE /* FirstScheduleView.swift in Sources */,
@@ -465,6 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HaruCoach/HaruCoach.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_KEY_CFBundleDisplayName = "하루코치";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -645,6 +676,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HaruCoach/HaruCoach.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_KEY_CFBundleDisplayName = "하루코치";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -704,9 +736,22 @@
 				minimumVersion = 1.17.0;
 			};
 		};
+		EB49AD1E84E86E719D6B462D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		06D3D5AC7EE3A8B8A01B7B34 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB49AD1E84E86E719D6B462D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		3C5E920F05B02D1EEC9679A5 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 09F1F546BEF8E2AB4691E6E6 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
