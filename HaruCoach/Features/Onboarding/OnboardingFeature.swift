@@ -43,6 +43,8 @@ struct OnboardingFeature {
         case skipToQuickSetup
     }
     
+    @Dependency(\.databaseClient) var databaseClient
+    
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
@@ -92,7 +94,16 @@ struct OnboardingFeature {
                 return .none
                 
             case .completeOnboarding:
-                return .none
+                let start = Date.today(hour: state.workStartHour, minute: state.workStartMinute)
+                let end = Date.today(hour: state.workEndHour, minute: state.workEndMinute)
+                let user = User(
+                    workStartTime: start,
+                    workEndTime: end,
+                    chronotype: state.chronotype
+                )
+                return .run { send in
+                    try? databaseClient.saveUser(user)
+                }
                 
             case .skipToQuickSetup:
                 state.currentPage = .quickSetup

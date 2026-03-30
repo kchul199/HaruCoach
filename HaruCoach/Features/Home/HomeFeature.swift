@@ -49,6 +49,8 @@ struct HomeFeature {
         case updateTask(TaskData)
         case stopEditing
         case refreshGreeting
+        case onAppear
+        case tasksLoaded([TaskData])
         
         // TaskResult wrapper for Equatable
         enum TaskResult<T>: Equatable {
@@ -58,6 +60,7 @@ struct HomeFeature {
     }
     
     @Dependency(\.aiService) var aiService
+    @Dependency(\.databaseClient) var databaseClient
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -72,10 +75,21 @@ struct HomeFeature {
                 let input = state.inputText
                 
                 return .run { send in
+                    var aiContext = AIContext()
+                    if let user = try? databaseClient.fetchUser() {
+                        aiContext = AIContext(
+                            workStartTime: user.workStartTime,
+                            workEndTime: user.workEndTime,
+                            chronotype: user.chronotype.rawValue,
+                            aiPreference: user.aiPreference.rawValue,
+                            correctionHistory: []
+                        )
+                    }
+                    
                     do {
                         let result = try await aiService.generateSchedule(
                             from: input,
-                            context: AIContext()
+                            context: aiContext
                         )
                         await send(.scheduleGenerated(.success(result.tasks, result.aiMessage)))
                     } catch {
@@ -103,8 +117,19 @@ struct HomeFeature {
                 
                 let confirmed = state.confirmedTasks
                 return .run { _ in
-                    for task in confirmed {
-                        NotificationManager.shared.scheduleTaskReminder(taskId: task.id, title: task.title, at: task.startTime)
+                    for taskData in confirmed {
+                        let hcTask = HCTask(
+                            id: taskData.id,
+                            title: taskData.title,
+                            category: TaskCategory(rawValue: taskData.category) ?? .personal,
+                            startTime: taskData.startTime,
+                            duration: taskData.duration,
+                            status: .pending
+                        )
+                        hcTask.wasEdited = taskData.isEdited
+                        try? databaseClient.saveTask(hcTask)
+                        
+                        NotificationManager.shared.scheduleTaskReminder(taskId: taskData.id, title: taskData.title, at: taskData.startTime)
                     }
                     NotificationManager.shared.scheduleEveningReview()
                 }
@@ -146,8 +171,22 @@ struct HomeFeature {
                     state.confirmedTasks[index] = modified
                     state.confirmedTasks.sort { $0.startTime < $1.startTime }
                 }
+                
                 state.editingTaskId = nil
-                return .none
+                
+                // DB 저장
+                let hcTask = HCTask(
+                    id: updatedTask.id,
+                    title: updatedTask.title,
+                    category: TaskCategory(rawValue: updatedTask.category) ?? .personal,
+                    startTime: updatedTask.startTime,
+                    duration: updatedTask.duration,
+                    status: .pending
+                )
+                hcTask.wasEdited = true
+                return .run { _ in
+                    try? databaseClient.saveTask(hcTask)
+                }
                 
             case .stopEditing:
                 state.editingTaskId = nil
@@ -156,6 +195,27 @@ struct HomeFeature {
                 
             case .refreshGreeting:
                 state.greeting = Date().greeting
+                return .none
+                
+            case .onAppear:
+                return .run { [date = state.todayDate] send in
+                    let hcTasks = (try? databaseClient.fetchTasks(date)) ?? []
+                    let domainTasks = hcTasks.map { hcTask in
+                        TaskData(
+                            id: hcTask.id,
+                            title: hcTask.title,
+                            category: hcTask.category.rawValue,
+                            startTime: hcTask.startTime,
+                            duration: hcTask.duration,
+                            isEdited: hcTask.wasEdited
+                        )
+                    }
+                    // 임시: 완료 상태 토글 반영을 위해 별도 처리가 필요할 수 있으나 MVP엔 제외
+                    await send(.tasksLoaded(domainTasks))
+                }
+                
+            case .tasksLoaded(let tasks):
+                state.confirmedTasks = tasks
                 return .none
             }
         }

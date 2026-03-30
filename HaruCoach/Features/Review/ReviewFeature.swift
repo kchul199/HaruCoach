@@ -36,17 +36,42 @@ struct ReviewFeature {
     }
     
     @Dependency(\.aiService) var aiService
+    @Dependency(\.databaseClient) var databaseClient
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .loadReview:
                 state.isLoading = true
-                return .run { send in
+                return .run { [date = Date()] send in
+                    // DB에서 오늘 태스크 로드
+                    let hcTasks = (try? databaseClient.fetchTasks(date)) ?? []
+                    let domainTasks = hcTasks.map { hcTask in
+                        TaskData(
+                            id: hcTask.id,
+                            title: hcTask.title,
+                            category: hcTask.category.rawValue,
+                            startTime: hcTask.startTime,
+                            duration: hcTask.duration,
+                            isEdited: hcTask.wasEdited
+                        )
+                    }
+                    
+                    var aiContext = AIContext()
+                    if let user = try? databaseClient.fetchUser() {
+                        aiContext = AIContext(
+                            workStartTime: user.workStartTime,
+                            workEndTime: user.workEndTime,
+                            chronotype: user.chronotype.rawValue,
+                            aiPreference: user.aiPreference.rawValue,
+                            correctionHistory: []
+                        )
+                    }
+                    
                     do {
                         let result = try await aiService.generateReview(
-                            for: [], // 실제로는 오늘의 태스크를 전달
-                            context: AIContext()
+                            for: domainTasks,
+                            context: aiContext
                         )
                         await send(.reviewLoaded(
                             result.completionRate,

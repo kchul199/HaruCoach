@@ -54,6 +54,9 @@ struct HomeView: View {
             )
             .presentationDetents([.medium, .large])
         }
+        .onAppear {
+            store.send(.onAppear)
+        }
     }
     
     // MARK: - 헤더
