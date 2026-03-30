@@ -24,7 +24,8 @@ struct OnboardingFeature {
         case intro2 = 2
         case intro3 = 3
         case quickSetup = 4
-        case firstSchedule = 5
+        case login = 5
+        case firstSchedule = 6
     }
     
     enum Action: Equatable {

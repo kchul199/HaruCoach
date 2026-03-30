@@ -26,6 +26,10 @@ struct OnboardingView: View {
                 QuickSetupView(store: store)
                     .transition(.fadeScale)
                     
+            case .login:
+                LoginView(store: store)
+                    .transition(.fadeScale)
+                    
             case .firstSchedule:
                 FirstScheduleView(store: store)
                     .transition(.fadeScale)

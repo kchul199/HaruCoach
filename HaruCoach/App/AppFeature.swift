@@ -73,7 +73,9 @@ struct AppFeature {
                 if !state.onboarding.firstInput.isEmpty {
                     state.home.inputText = state.onboarding.firstInput
                 }
-                return .none
+                return .run { _ in
+                    await NotificationManager.shared.requestAuthorization()
+                }
                 
             case .onboarding(.completeOnboarding):
                 return .send(.completeOnboarding)

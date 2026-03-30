@@ -15,6 +15,7 @@ struct HomeFeature {
         var generatedTasks: [TaskData] = []
         var confirmedTasks: [TaskData] = []
         var editingTaskId: String? = nil
+        var isEditingNewTask: Bool = false
         var todayDate: Date = Date()
         var greeting: String = Date().greeting
         
@@ -44,6 +45,7 @@ struct HomeFeature {
         case dismissConfirmation
         case toggleTaskCompletion(String)
         case startEditingTask(String)
+        case startAddingNewTask
         case updateTask(TaskData)
         case stopEditing
         case refreshGreeting
@@ -98,7 +100,14 @@ struct HomeFeature {
                 state.showConfirmationCard = false
                 state.inputText = ""
                 state.generatedTasks = []
-                return .none
+                
+                let confirmed = state.confirmedTasks
+                return .run { _ in
+                    for task in confirmed {
+                        NotificationManager.shared.scheduleTaskReminder(taskId: task.id, title: task.title, at: task.startTime)
+                    }
+                    NotificationManager.shared.scheduleEveningReview()
+                }
                 
             case .dismissConfirmation:
                 state.showConfirmationCard = false
@@ -117,21 +126,32 @@ struct HomeFeature {
                 state.editingTaskId = taskId
                 return .none
                 
+            case .startAddingNewTask:
+                state.isEditingNewTask = true
+                return .none
+                
             case .updateTask(let updatedTask):
-                if let index = state.generatedTasks.firstIndex(where: { $0.id == updatedTask.id }) {
+                if state.isEditingNewTask {
+                    state.confirmedTasks.append(updatedTask)
+                    state.confirmedTasks.sort { $0.startTime < $1.startTime }
+                    state.isEditingNewTask = false
+                } else if let index = state.generatedTasks.firstIndex(where: { $0.id == updatedTask.id }) {
                     var modified = updatedTask
                     modified.isEdited = true
                     state.generatedTasks[index] = modified
+                    state.generatedTasks.sort { $0.startTime < $1.startTime }
                 } else if let index = state.confirmedTasks.firstIndex(where: { $0.id == updatedTask.id }) {
                     var modified = updatedTask
                     modified.isEdited = true
                     state.confirmedTasks[index] = modified
+                    state.confirmedTasks.sort { $0.startTime < $1.startTime }
                 }
                 state.editingTaskId = nil
                 return .none
                 
             case .stopEditing:
                 state.editingTaskId = nil
+                state.isEditingNewTask = false
                 return .none
                 
             case .refreshGreeting:

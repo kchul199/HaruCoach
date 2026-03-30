@@ -34,6 +34,25 @@ struct HomeView: View {
             if store.showConfirmationCard {
                 aiConfirmationOverlay
             }
+            
+            // 수동 추가 플로팅 버튼 (타임라인 모드일 때만 표시)
+            if !store.confirmedTasks.isEmpty && !store.showConfirmationCard {
+                floatingAddButton
+            }
+        }
+        .sheet(isPresented: Binding(
+            get: { store.editingTaskId != nil || store.isEditingNewTask },
+            set: { presenting in if !presenting { store.send(.stopEditing) } }
+        )) {
+            let taskToEdit = store.editingTaskId.flatMap { id in
+                store.generatedTasks.first(where: { $0.id == id }) ?? store.confirmedTasks.first(where: { $0.id == id })
+            }
+            EditTaskView(
+                task: taskToEdit,
+                onSave: { store.send(.updateTask($0)) },
+                onCancel: { store.send(.stopEditing) }
+            )
+            .presentationDetents([.medium, .large])
         }
     }
     
@@ -234,6 +253,29 @@ struct HomeView: View {
                 )
         }
         .pressEffect()
+    }
+    
+    // MARK: - 플로팅 버튼
+    
+    private var floatingAddButton: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                Button {
+                    store.send(.startAddingNewTask)
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundStyle(.white)
+                        .frame(width: 56, height: 56)
+                        .background(HCColors.primary)
+                        .clipShape(Circle())
+                        .shadow(color: HCColors.primary.opacity(0.4), radius: 8, x: 0, y: 4)
+                }
+                .padding()
+            }
+        }
     }
 }
 
