@@ -16,12 +16,14 @@
 		3272400E1A596D2C2C6545F9 /* DailyReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7D3C0F74D0584FCCE330B6 /* DailyReview.swift */; };
 		3BAF382DC217F5A56EB55E59 /* IntroCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69608532FF0436C00857F0 /* IntroCarouselView.swift */; };
 		3D54D39E4FA09F02E04E39FA /* OnboardingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B45D91BB094394A38EB1535 /* OnboardingFeature.swift */; };
+		4DD5680385573D62E272B923 /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BBD81AD061EECCF0369EB /* AppleLoginButton.swift */; };
 		5F954A2F8A5FFA03640D5DB5 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DB92C1E5D7D7853349FF2 /* ReviewView.swift */; };
 		63C739C22591C5BDEBD307CA /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5A44F97D86DA9DE994E9A3 /* OnboardingView.swift */; };
 		718BE91D3E94A209D622A5F3 /* HomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73759E81B5E4B4403D403D14 /* HomeFeature.swift */; };
 		77630799AD73E057ED5FCA0C /* HaruCoachApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AC352490ECE8A7670CB142 /* HaruCoachApp.swift */; };
 		7E96FA275AC9248E92F995FE /* FirstScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD4C20480A9E634640E5F7 /* FirstScheduleView.swift */; };
 		8EF1BFF2E1F698346DCD63D3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D313A5B24B4D91CE4CC608 /* SplashView.swift */; };
+		908C167474C0955F40464B55 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754D226B418DBB49CB817F3 /* EditTaskView.swift */; };
 		949FFADD6A25695D6FC3D657 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC08C562B26940529E4FB111 /* HomeView.swift */; };
 		990FA1D033CAE671239C7638 /* HaruCoachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D065B1918DB91AA495A61E /* HaruCoachTests.swift */; };
 		9BF746687FE0D16C946C1569 /* ReviewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4896D2A7538C2C20C867EA22 /* ReviewFeature.swift */; };
@@ -41,6 +43,7 @@
 		DF1851C2DC153AA5B88B8223 /* HCTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226564F4DE2636916B4DB823 /* HCTask.swift */; };
 		E176D04EF4E3CB3E4194742F /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64529778384F279699FBB48B /* AppFeature.swift */; };
 		EE7720356CE32C60F2D7A051 /* HCSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008261B96D30351FA9C118C3 /* HCSpacing.swift */; };
+		EF9A74B0C4996E6926789CD1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F4063C6BB2E4207BEFBCBE /* LoginView.swift */; };
 		F2BFCD3F186BBCA4062D2463 /* HCTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974B0F8CA0E87B3F90C69F1 /* HCTypography.swift */; };
 		F9B8706C08EBAA86578B5269 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9771289A7FD49135F40FAB6C /* AIService.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,7 @@
 /* Begin PBXFileReference section */
 		008261B96D30351FA9C118C3 /* HCSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSpacing.swift; sourceTree = "<group>"; };
 		0216AC8A90C432F8BA3C35FF /* MockAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAIService.swift; sourceTree = "<group>"; };
+		0754D226B418DBB49CB817F3 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		193D3431CA24FB0A95648602 /* HCAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAnimations.swift; sourceTree = "<group>"; };
 		226564F4DE2636916B4DB823 /* HCTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTask.swift; sourceTree = "<group>"; };
 		2974B0F8CA0E87B3F90C69F1 /* HCTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTypography.swift; sourceTree = "<group>"; };
@@ -80,7 +84,9 @@
 		A0271E615B90E61BA9386312 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		A7AC352490ECE8A7670CB142 /* HaruCoachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaruCoachApp.swift; sourceTree = "<group>"; };
 		A8D065B1918DB91AA495A61E /* HaruCoachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaruCoachTests.swift; sourceTree = "<group>"; };
+		B9F4063C6BB2E4207BEFBCBE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BF9024F45966994F15A7EA7B /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
+		C02BBD81AD061EECCF0369EB /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
 		C6BE8A0366CD3CA0EDE5321A /* QuickSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSetupView.swift; sourceTree = "<group>"; };
 		CC69608532FF0436C00857F0 /* IntroCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCarouselView.swift; sourceTree = "<group>"; };
 		DECD1F52EC71C84DDEF298E8 /* HCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCButton.swift; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 		5F6AFADEA615674D9E1BD815 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C02BBD81AD061EECCF0369EB /* AppleLoginButton.swift */,
 				DECD1F52EC71C84DDEF298E8 /* HCButton.swift */,
 				4122AAB44571F5F091E6480C /* HCTextField.swift */,
 				BF9024F45966994F15A7EA7B /* ProgressRing.swift */,
@@ -168,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				4179221C0CA17E9953EE51BA /* AIConfirmationCard.swift */,
+				0754D226B418DBB49CB817F3 /* EditTaskView.swift */,
 				73759E81B5E4B4403D403D14 /* HomeFeature.swift */,
 				FC08C562B26940529E4FB111 /* HomeView.swift */,
 			);
@@ -219,6 +227,7 @@
 			children = (
 				F2DD4C20480A9E634640E5F7 /* FirstScheduleView.swift */,
 				CC69608532FF0436C00857F0 /* IntroCarouselView.swift */,
+				B9F4063C6BB2E4207BEFBCBE /* LoginView.swift */,
 				7B45D91BB094394A38EB1535 /* OnboardingFeature.swift */,
 				3C5A44F97D86DA9DE994E9A3 /* OnboardingView.swift */,
 				C6BE8A0366CD3CA0EDE5321A /* QuickSetupView.swift */,
@@ -404,10 +413,12 @@
 				D84B40D2239B9B278305B9D2 /* AIConfirmationCard.swift in Sources */,
 				F9B8706C08EBAA86578B5269 /* AIService.swift in Sources */,
 				E176D04EF4E3CB3E4194742F /* AppFeature.swift in Sources */,
+				4DD5680385573D62E272B923 /* AppleLoginButton.swift in Sources */,
 				CE3B5288AE2BB3BF6C18EA69 /* Correction.swift in Sources */,
 				B7A5045456054340D78F942C /* DailyPlan.swift in Sources */,
 				3272400E1A596D2C2C6545F9 /* DailyReview.swift in Sources */,
 				2933F85FF783482B7C39770B /* Date+Extensions.swift in Sources */,
+				908C167474C0955F40464B55 /* EditTaskView.swift in Sources */,
 				7E96FA275AC9248E92F995FE /* FirstScheduleView.swift in Sources */,
 				B141F7F237184289F38C0D84 /* HCAnimations.swift in Sources */,
 				9F9A35A95B9FB1D93BDA6959 /* HCButton.swift in Sources */,
@@ -420,6 +431,7 @@
 				718BE91D3E94A209D622A5F3 /* HomeFeature.swift in Sources */,
 				949FFADD6A25695D6FC3D657 /* HomeView.swift in Sources */,
 				3BAF382DC217F5A56EB55E59 /* IntroCarouselView.swift in Sources */,
+				EF9A74B0C4996E6926789CD1 /* LoginView.swift in Sources */,
 				0D1E6F8E1BAEE2C5CB47334C /* MockAIService.swift in Sources */,
 				D35D63CBD137CA2B5958B73F /* NotificationManager.swift in Sources */,
 				3D54D39E4FA09F02E04E39FA /* OnboardingFeature.swift in Sources */,
@@ -550,7 +562,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -615,7 +627,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
