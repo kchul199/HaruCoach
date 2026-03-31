@@ -1,5 +1,6 @@
 import Foundation
 import CryptoKit
+import Security
 
 enum AppleAuthHelper {
     // 임의의 Nonce 문자열 생성
