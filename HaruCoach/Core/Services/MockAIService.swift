@@ -158,6 +158,6 @@ final class MockAIService: AIServiceProtocol {
             "알찬 하루가 될 것 같아요! \(count)개 일정, 총 \(Int(totalHours))시간이에요."
         ]
         
-        return messages.randomElement()!
+        return messages.randomElement() ?? "오늘도 힘차게 시작해봐요! 🚀"
     }
 }

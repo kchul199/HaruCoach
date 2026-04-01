@@ -7,7 +7,8 @@ struct IntroCarouselView: View {
     @Bindable var store: StoreOf<OnboardingFeature>
     
     private var currentIndex: Int {
-        store.currentPage.rawValue - 1 // intro1=0, intro2=1, intro3=2
+        let index = store.currentPage.rawValue - 1
+        return max(0, min(index, 2)) // intro1=0, intro2=1, intro3=2
     }
     
     private let introPages: [(icon: String, title: String, subtitle: String, description: String)] = [

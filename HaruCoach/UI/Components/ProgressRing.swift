@@ -66,7 +66,7 @@ struct ProgressRing: View {
         .frame(width: size, height: size)
         .onAppear {
             withAnimation(HCAnimation.countUp) {
-                animatedProgress = progress
+                animatedProgress = max(0, min(progress, 1.0))
             }
         }
         .onChange(of: progress) { _, newValue in
