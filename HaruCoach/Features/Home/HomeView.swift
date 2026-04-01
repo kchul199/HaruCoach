@@ -42,20 +42,20 @@ struct HomeView: View {
         }
         .sheet(isPresented: Binding(
             get: { store.editingTaskId != nil || store.isEditingNewTask },
-            set: { presenting in if !presenting { store.send(.stopEditing) } }
+            set: { presenting in if !presenting { _ = store.send(.stopEditing) } }
         )) {
             let taskToEdit = store.editingTaskId.flatMap { id in
                 store.generatedTasks.first(where: { $0.id == id }) ?? store.confirmedTasks.first(where: { $0.id == id })
             }
             EditTaskView(
                 task: taskToEdit,
-                onSave: { store.send(.updateTask($0)) },
-                onCancel: { store.send(.stopEditing) }
+                onSave: { _ = store.send(.updateTask($0)) },
+                onCancel: { _ = store.send(.stopEditing) }
             )
             .presentationDetents([.medium, .large])
         }
         .onAppear {
-            store.send(.onAppear)
+            _ = store.send(.onAppear)
         }
     }
     
@@ -105,7 +105,7 @@ struct HomeView: View {
             placeholder: "오늘 할 일을 말해보세요...",
             icon: "sparkles",
             onSubmit: {
-                store.send(.generateSchedule)
+                _ = store.send(.generateSchedule)
             }
         )
         .hcScreenPadding()
@@ -182,10 +182,10 @@ struct HomeView: View {
                 } else {
                     TaskCard(
                         task: task,
-                        onTap: { store.send(.startEditingTask(task.id)) },
+                        onTap: { _ = store.send(.startEditingTask(task.id)) },
                         onComplete: {
                             withAnimation(HCAnimation.bounce) {
-                                store.send(.toggleTaskCompletion(task.id))
+                                _ = store.send(.toggleTaskCompletion(task.id))
                             }
                         }
                     )
@@ -204,15 +204,15 @@ struct HomeView: View {
             Color.black.opacity(0.4)
                 .ignoresSafeArea()
                 .onTapGesture {
-                    store.send(.dismissConfirmation)
+                    _ = store.send(.dismissConfirmation)
                 }
             
             AIConfirmationCard(
                 tasks: store.generatedTasks,
                 aiMessage: store.aiMessage,
-                onConfirm: { store.send(.confirmSchedule) },
-                onDismiss: { store.send(.dismissConfirmation) },
-                onEditTask: { taskId in store.send(.startEditingTask(taskId)) }
+                onConfirm: { _ = store.send(.confirmSchedule) },
+                onDismiss: { _ = store.send(.dismissConfirmation) },
+                onEditTask: { taskId in _ = store.send(.startEditingTask(taskId)) }
             )
             .padding(.horizontal, HCSpacing.lg)
             .transition(.cardAppear)
@@ -243,7 +243,7 @@ struct HomeView: View {
     @ViewBuilder
     private func suggestionBubble(_ text: String) -> some View {
         Button {
-            store.send(.setInputText(text))
+            _ = store.send(.setInputText(text))
         } label: {
             Text("💬 \"\(text)\"")
                 .font(HCTypography.bodySmall)
@@ -266,7 +266,7 @@ struct HomeView: View {
             HStack {
                 Spacer()
                 Button {
-                    store.send(.startAddingNewTask)
+                    _ = store.send(.startAddingNewTask)
                 } label: {
                     Image(systemName: "plus")
                         .font(.system(size: 24, weight: .bold))

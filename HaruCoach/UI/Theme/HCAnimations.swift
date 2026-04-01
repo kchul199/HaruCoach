@@ -46,8 +46,8 @@ extension AnyTransition {
     /// 카드 등장
     static var cardAppear: AnyTransition {
         .asymmetric(
-            insertion: .scale(scale: 0.95).combined(with: .opacity).animation(.gentleSpring),
-            removal: .opacity.animation(.quick)
+            insertion: .scale(scale: 0.95).combined(with: .opacity).animation(HCAnimation.gentleSpring),
+            removal: .opacity.animation(HCAnimation.quick)
         )
     }
 }

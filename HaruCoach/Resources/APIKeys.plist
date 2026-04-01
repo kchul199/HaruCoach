@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Claude API 키를 아래에 입력하세요 -->
+	<!-- https://console.anthropic.com 에서 발급 -->
+	<!-- 비워두면 Mock AI 서비스가 자동으로 사용됩니다 -->
+	<key>ClaudeAPIKey</key>
+	<string>YOUR_CLAUDE_API_KEY_HERE</string>
+</dict>
+</plist>

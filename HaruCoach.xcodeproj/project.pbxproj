@@ -51,6 +51,9 @@
 		F2BFCD3F186BBCA4062D2463 /* HCTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974B0F8CA0E87B3F90C69F1 /* HCTypography.swift */; };
 		F4FD0DC61096C40067F67131 /* AppleAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E52405A10EA8C3A34AB49C9 /* AppleAuthHelper.swift */; };
 		F9B8706C08EBAA86578B5269 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9771289A7FD49135F40FAB6C /* AIService.swift */; };
+		AA11223344556677AABBCCDE /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11223344556677AABBCCDD /* APIConfig.swift */; };
+		BB11223344556677AABBCCDE /* ClaudeAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB11223344556677AABBCCDD /* ClaudeAIService.swift */; };
+		CC11223344556677AABBCCDE /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC11223344556677AABBCCDD /* APIKeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,9 @@
 		F7D313A5B24B4D91CE4CC608 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		FB6DB92C1E5D7D7853349FF2 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		FC08C562B26940529E4FB111 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA11223344556677AABBCCDD /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		BB11223344556677AABBCCDD /* ClaudeAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeAIService.swift; sourceTree = "<group>"; };
+		CC11223344556677AABBCCDD /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +276,7 @@
 				9771289A7FD49135F40FAB6C /* AIService.swift */,
 				B291ADF8C0323BA9614B2826 /* AuthClient.swift */,
 				C642B6B849336778C44CCC1A /* DatabaseClient.swift */,
+				BB11223344556677AABBCCDD /* ClaudeAIService.swift */,
 				0216AC8A90C432F8BA3C35FF /* MockAIService.swift */,
 				88B79646718D3890F6FBE24B /* PromptManager.swift */,
 			);
@@ -281,6 +288,7 @@
 			children = (
 				664A9F320EEE6B1D9975D926 /* Assets.xcassets */,
 				54C23F98A893F0941A82ABFA /* GoogleService-Info.plist */,
+				CC11223344556677AABBCCDD /* APIKeys.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -292,6 +300,7 @@
 				EBB501171A7378A7649237CB /* Models */,
 				B582FF6E72A2786B18EF9344 /* Network */,
 				A810C860DE7D1BA1F3CB9EE5 /* Notifications */,
+				DD11223344556677AABBCCDD /* Config */,
 				CE3B278887845758CFE7C4CF /* Services */,
 				F43EECA78BEDB95E524D4A3A /* Utils */,
 			);
@@ -333,6 +342,14 @@
 				2E52405A10EA8C3A34AB49C9 /* AppleAuthHelper.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DD11223344556677AABBCCDD /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				AA11223344556677AABBCCDD /* APIConfig.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +436,7 @@
 			files = (
 				A55128F8E30720C69773AC19 /* Assets.xcassets in Resources */,
 				A78951C03F77B98AB09B75E5 /* GoogleService-Info.plist in Resources */,
+				CC11223344556677AABBCCDE /* APIKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +480,8 @@
 				949FFADD6A25695D6FC3D657 /* HomeView.swift in Sources */,
 				3BAF382DC217F5A56EB55E59 /* IntroCarouselView.swift in Sources */,
 				EF9A74B0C4996E6926789CD1 /* LoginView.swift in Sources */,
+				AA11223344556677AABBCCDE /* APIConfig.swift in Sources */,
+				BB11223344556677AABBCCDE /* ClaudeAIService.swift in Sources */,
 				0D1E6F8E1BAEE2C5CB47334C /* MockAIService.swift in Sources */,
 				D35D63CBD137CA2B5958B73F /* NotificationManager.swift in Sources */,
 				3D54D39E4FA09F02E04E39FA /* OnboardingFeature.swift in Sources */,
@@ -593,7 +613,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -658,7 +678,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;

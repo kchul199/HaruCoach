@@ -2,7 +2,7 @@ name: HaruCoach
 options:
   bundleIdPrefix: com.harucoach
   deploymentTarget:
-    iOS: "26.0"
+    iOS: "17.0"
   xcodeVersion: "16.0"
   generateEmptyDirectories: true
   groupSortPosition: top
@@ -46,8 +46,6 @@ targets:
       - package: ComposableArchitecture
       - package: Firebase
         product: FirebaseAuth
-      - package: Firebase
-        product: FirebaseCore
 
   HaruCoachTests:
     type: bundle.unit-test

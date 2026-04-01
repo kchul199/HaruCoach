@@ -19,22 +19,16 @@ struct HomeFeature {
         var todayDate: Date = Date()
         var greeting: String = Date().greeting
         
-        var completedCount: Int {
-            confirmedTasks.filter { _ in false }.count // 실제 완료 상태는 별도 관리
-        }
-        
-        var completionRate: Double {
-            guard !confirmedTasks.isEmpty else { return 0 }
-            return Double(completedCount) / Double(confirmedTasks.count)
-        }
-        
-        // 태스크 완료 상태를 별도로 관리
+        // 태스크 완료 상태를 completedTaskIds로 별도 관리
         var completedTaskIds: Set<String> = []
-        
-        var actualCompletionRate: Double {
+
+        var completionRate: Double {
             guard !confirmedTasks.isEmpty else { return 0 }
             return Double(completedTaskIds.count) / Double(confirmedTasks.count)
         }
+
+        // actualCompletionRate → completionRate와 동일하므로 통합 (HomeView 호환)
+        var actualCompletionRate: Double { completionRate }
     }
     
     enum Action: Equatable {
@@ -225,7 +219,14 @@ struct HomeFeature {
 // MARK: - AI Service Dependency
 
 struct AIServiceKey: DependencyKey {
-    static var liveValue: any AIServiceProtocol = MockAIService()
+    /// API 키가 설정되어 있으면 ClaudeAIService, 없으면 MockAIService 사용
+    static var liveValue: any AIServiceProtocol {
+        if APIConfig.useMockAI {
+            return MockAIService()
+        } else {
+            return ClaudeAIService(apiKey: APIConfig.claudeAPIKey)
+        }
+    }
     static var testValue: any AIServiceProtocol = MockAIService()
 }
 

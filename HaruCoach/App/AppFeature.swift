@@ -8,7 +8,8 @@ struct AppFeature {
     
     @ObservableState
     struct State: Equatable {
-        var isOnboardingCompleted: Bool = false
+        // UserDefaults에서 온보딩 완료 상태를 불러와 앱 재시작 시에도 유지
+        var isOnboardingCompleted: Bool = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
         var selectedTab: Tab = .home
         var onboarding = OnboardingFeature.State()
         var home = HomeFeature.State()
@@ -69,6 +70,8 @@ struct AppFeature {
                 
             case .completeOnboarding:
                 state.isOnboardingCompleted = true
+                // 앱 재시작 후에도 온보딩을 건너뛸 수 있도록 UserDefaults에 저장
+                UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
                 // 첫 입력이 있으면 홈에 전달
                 if !state.onboarding.firstInput.isEmpty {
                     state.home.inputText = state.onboarding.firstInput

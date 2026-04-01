@@ -29,7 +29,8 @@ final class MockAIService: AIServiceProtocol {
     func generateReview(for tasks: [TaskData], context: AIContext) async throws -> ReviewResult {
         try await Task.sleep(nanoseconds: UInt64(simulatedDelay * 1_000_000_000))
         
-        let completed = tasks.filter { _ in Bool.random() ? true : true } // Mock: 대부분 완료
+        // Mock: 약 70% 완료율 시뮬레이션 (다양한 리뷰 UI 테스트 가능)
+        let completed = tasks.filter { _ in Double.random(in: 0...1) < 0.7 }
         let completionRate = Float(completed.count) / Float(max(tasks.count, 1))
         
         let comments = [

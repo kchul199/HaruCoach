@@ -1,0 +1,8 @@
+.DS_Store
+*.xcuserstate
+xcuserdata/
+*.swp
+DerivedData/
+*.xcresult
+*.xcworkspace
+!HaruCoach.xcodeproj/project.xcworkspace

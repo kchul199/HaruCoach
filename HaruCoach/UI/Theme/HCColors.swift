@@ -34,20 +34,20 @@ enum HCColors {
     static let error = Color(hex: "EF4444")           // Red-500
     static let info = Color(hex: "3B82F6")            // Blue-500
     
-    // MARK: - 배경
-    static let background = Color("HCBackground")
-    static let surface = Color("HCSurface")
-    static let surfaceElevated = Color("HCSurfaceElevated")
-    
-    // MARK: - 텍스트
-    static let textPrimary = Color("HCTextPrimary")
-    static let textSecondary = Color("HCTextSecondary")
-    static let textTertiary = Color("HCTextTertiary")
-    static let textInverse = Color("HCTextInverse")
-    
-    // MARK: - 기타
-    static let border = Color("HCBorder")
-    static let divider = Color("HCDivider")
+    // MARK: - 배경 (다크모드 자동 대응 — UIColor 기반)
+    static let background = Color(.systemGroupedBackground)
+    static let surface = Color(.systemBackground)
+    static let surfaceElevated = Color(.secondarySystemBackground)
+
+    // MARK: - 텍스트 (다크모드 자동 대응)
+    static let textPrimary = Color(.label)
+    static let textSecondary = Color(.secondaryLabel)
+    static let textTertiary = Color(.tertiaryLabel)
+    static let textInverse = Color.white
+
+    // MARK: - 기타 (다크모드 자동 대응)
+    static let border = Color(.separator)
+    static let divider = Color(.separator)
     static let shadow = Color.black.opacity(0.08)
     
     // MARK: - 그라디언트
